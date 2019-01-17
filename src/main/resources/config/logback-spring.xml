@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="APP_NAME" value="demo" />
+	<!-- 控制台打印日志的相关配置 -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 日志格式 -->
+		<encoder>
+			<pattern>%d{yyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{100} -%msg%n</pattern>
+		</encoder>
+	</appender>
+	<!-- 输出到日志文件的相关配置 -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${user.dir}/logs/demo.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>cms-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<maxHistory>20</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{100} -%msg%n</pattern>
+		</encoder>
+	</appender>
+	<!-- info -->
+	<logger name="org.springframework.boot.autoconfigure.logging" level="INFO"/>
+	<logger name="org.springframework.core.env" level="INFO"/>
+	<logger name="org.springframework.web.servlet.view.freemarker" level="INFO"/>
+	<logger name="org.springframework.beans.factory" level="INFO"/>
+	<logger name="org.springframework.aop.framework" level="INFO"/>
+	<logger name="org.springframework.beans.factory.support" level="INFO"/>
+	<logger name="org.springframework.web.servlet.handler" level="INFO"/>
+	<logger name="org.springframework.jndi" level="INFO"/>
+	<logger name="org.hibernate.validator.internal" level="INFO"/>
+	<logger name="org.apache.commons.beanutils" level="INFO"/>
+	<!-- debug -->
+	<logger name="org.springframework.web" level="DEBUG"/>
+	<logger name="com.example" level="DEBUG"/>
+	<!-- root -->
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>

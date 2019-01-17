@@ -48,8 +48,8 @@ public class HelloWorldController {
     @RequestMapping("/getUser")
     public User getUser() {
         User user=new User();
-        user.setName("小明");
-        user.setPassword("123456");
+        /*user.setName("小明");
+        user.setPassword("123456");*/
         return user;
     }
     
