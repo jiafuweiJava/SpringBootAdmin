@@ -12,5 +12,11 @@ public class PageController {
         model.addAttribute("userName","张三");
         return "hello";
     }
+
+    @RequestMapping("/index")
+    public String index(Model model){
+        model.addAttribute("userName","张三");
+        return "index";
+    }
     
 }
