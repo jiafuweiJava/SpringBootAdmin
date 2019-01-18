@@ -1,4 +1,4 @@
-# SpringBootDemo
+# SpringBootAdmin
 + SpringBoot 学习案例
 + 整合多种技术框架，方便大家学习 
 

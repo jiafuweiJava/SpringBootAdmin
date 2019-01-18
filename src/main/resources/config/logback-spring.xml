@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="APP_NAME" value="demo" />
+    <property name="APP_NAME" value="admin" />
 	<!-- 控制台打印日志的相关配置 -->
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<!-- 日志格式 -->
@@ -10,7 +10,7 @@
 	</appender>
 	<!-- 输出到日志文件的相关配置 -->
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${user.dir}/logs/demo.log</file>
+		<file>${user.dir}/logs/admin.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>cms-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
 			<maxHistory>20</maxHistory>
@@ -35,7 +35,7 @@
 	<logger name="org.apache.commons.beanutils" level="INFO"/>
 	<!-- debug -->
 	<logger name="org.springframework.web" level="DEBUG"/>
-	<logger name="com.example" level="DEBUG"/>
+	<logger name="com.fwjia.admin" level="DEBUG"/>
 	<!-- root -->
 	<root level="INFO">
 		<appender-ref ref="CONSOLE" />
