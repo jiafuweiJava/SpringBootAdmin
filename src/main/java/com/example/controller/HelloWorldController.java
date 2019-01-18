@@ -1,21 +1,15 @@
 package com.example.controller;
 
-import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.example.po.Demo;
-import com.example.po.DemoRepository;
-import com.example.po.NeoProperties;
+import com.example.config.NeoProperties;
 import com.example.po.User;
 import com.example.service.DemoService;
 

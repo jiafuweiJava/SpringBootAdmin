@@ -25,7 +25,7 @@ public class DemoDao {
      * @return
      */
     public Demo getById(long id){
-       String sql = "select * from Demo where id=?";
+       String sql = "select * from t_demo where id=?";
        RowMapper<Demo> rowMapper = new BeanPropertyRowMapper<Demo>(Demo.class);
        return jdbcTemplate.queryForObject(sql, rowMapper,id);
     }

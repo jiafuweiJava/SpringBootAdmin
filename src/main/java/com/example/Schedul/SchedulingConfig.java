@@ -28,6 +28,10 @@ public class SchedulingConfig {
 	@Scheduled(cron = "0/59 * * * * ?") // 每59秒执行一次
     public void scheduler() {
 		Demo demo = demoService.getById(1);
-        LOGGER.debug(">>>>>>>>> SchedulingConfig.scheduler()"+demo.getEmail());
+		if(demo!=null){
+            LOGGER.debug(">>>>>>>>> SchedulingConfig.scheduler()"+demo.getEmail());
+        }else{
+            LOGGER.error("demo is null");
+        }
     }
 }

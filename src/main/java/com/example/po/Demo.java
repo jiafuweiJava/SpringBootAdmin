@@ -1,50 +1,64 @@
 package com.example.po;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 
 
+/**
+ * @author fwjia
+ */
+@Entity
+@Table(name = "t_demo")
+@org.hibernate.annotations.Table(appliesTo = "t_demo",comment="demo表注释...")
+public class Demo implements Serializable{
 
-@Entity//加入这个注解，Demo就会进行持久化了，在这里没有对@Table进行配置，请自行配置。
-public class Demo {
+	private static final long serialVersionUID = 1L;
+
+
 	@Id 
 	@GeneratedValue
-    private long id;//主键.
-	@Column(nullable = false, unique = true)
-    private String name;//测试名称.
-	@Column(nullable = false, unique = true)
+    private long id;
+
+	@Column(nullable = false,unique = false,columnDefinition = "int(2) comment '年龄'")
+	private Integer age;
+
+	@Column(nullable = false, unique = false,columnDefinition = "varchar(64) comment '姓名'")
+    private String name;
+
+	@Column(nullable = false, unique = true,columnDefinition = "varchar(64) comment '邮箱'")
 	private String email;
-    
-    
-	
-	
-	/*public Demo(String name, String email) {
-		super();
-		this.name = name;
-		this.email = email;
-	}*/
-	
+
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-    
-    
 }

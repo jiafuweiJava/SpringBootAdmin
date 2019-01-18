@@ -1,22 +1,45 @@
 package com.example.po;
 
-public class User {
+import javax.persistence.*;
+import java.io.Serializable;
+
+/**
+ * @author fwjia
+ */
+@Entity
+@Table(name = "t_user")
+@org.hibernate.annotations.Table(appliesTo = "t_user",comment="用户表")
+public class User implements Serializable {
+
+	private static final long serialVersionUID = 2L;
+
+
+	@Id
+	@GeneratedValue
 	private Integer id;
 
+	@Column(nullable = false, unique = true,columnDefinition = "varchar(64) comment '姓名'")
 	private String userName;
 
+	@Column(nullable = false,columnDefinition = "varchar(64) comment '密码'")
 	private String passWord;
 
+	@Column(columnDefinition = "varchar(256) comment '头像'")
 	private String avatar;
 
+	@Column(columnDefinition = "varchar(64) comment '手机'")
 	private String phone;
 
+	@Column(columnDefinition = "varchar(64) comment '邮箱'")
 	private String email;
 
+	@Column(columnDefinition = "varchar(8) comment '性别'")
 	private String sex;
 
+	@Column(columnDefinition = "varchar(64) comment 'ip地址'")
 	private String ip;
 
+	@Column(columnDefinition = "varchar(64) comment '加入时间'")
 	private String joinTime;
 
 	public Integer getId() {

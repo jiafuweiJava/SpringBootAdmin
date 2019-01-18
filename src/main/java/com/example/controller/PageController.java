@@ -13,10 +13,34 @@ public class PageController {
         return "hello";
     }
 
+    /**
+     * 跳转首页
+     * @param model
+     * @return
+     */
     @RequestMapping("/index")
     public String index(Model model){
-        model.addAttribute("userName","张三");
         return "index";
+    }
+
+    /**
+     * 跳转到404页面
+     * @param model
+     * @return
+     */
+    @RequestMapping("/404")
+    public String to404(Model model){
+        return "template/tips/404";
+    }
+
+    /**
+     * 跳转到500页面
+     * @param model
+     * @return
+     */
+    @RequestMapping("/500")
+    public String to500(Model model){
+        return "template/tips/500";
     }
     
 }
