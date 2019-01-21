@@ -3,8 +3,14 @@ package com.fwjia.admin.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * 系统配置
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
+ */
 @Component
-public class NeoProperties {
+public class SystemProperties {
     @Value("${com.neo.title}")
     private String title;
     @Value("${com.neo.description}")

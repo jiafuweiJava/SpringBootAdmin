@@ -22,8 +22,9 @@ import org.springframework.http.HttpStatus;
 /**
  * 自定义Filter
  * 我们常常在项目中会使用filters用于录调用日志、排除有XSS威胁的字符、执行权限验证等等
- * @author jiafuwei
- *
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
  */
 @Configuration
 public class WebConfiguration {

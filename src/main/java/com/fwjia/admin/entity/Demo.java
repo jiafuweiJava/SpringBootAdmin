@@ -1,4 +1,6 @@
-package com.fwjia.admin.po;
+package com.fwjia.admin.entity;
+
+import com.fwjia.admin.entity.support.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +13,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "t_demo")
 @org.hibernate.annotations.Table(appliesTo = "t_demo",comment="demo表注释...")
-public class Demo implements Serializable{
+public class Demo extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 

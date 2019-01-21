@@ -19,8 +19,9 @@ import freemarker.template.TemplateModelException;
 
 /**
  * 全局异常处理类
- * @author DELL
- * @version 1.0.0
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {

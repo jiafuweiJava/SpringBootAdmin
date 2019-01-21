@@ -1,15 +1,20 @@
-package com.fwjia.admin.po;
+package com.fwjia.admin.entity;
+
+import com.fwjia.admin.entity.support.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * @author fwjia
+ * 用户对象
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
  */
 @Entity
 @Table(name = "t_user")
 @org.hibernate.annotations.Table(appliesTo = "t_user",comment="用户表")
-public class User implements Serializable {
+public class User extends BaseEntity {
 
 	private static final long serialVersionUID = 2L;
 

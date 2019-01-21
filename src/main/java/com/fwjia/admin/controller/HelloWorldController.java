@@ -3,15 +3,14 @@ package com.fwjia.admin.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import com.fwjia.admin.config.NeoProperties;
-import com.fwjia.admin.po.Demo;
-import com.fwjia.admin.po.User;
+import com.fwjia.admin.config.SystemProperties;
+import com.fwjia.admin.entity.Demo;
+import com.fwjia.admin.entity.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.fwjia.admin.service.DemoService;
 
 /**
  * Spring Boot 测试
@@ -23,34 +22,26 @@ import com.fwjia.admin.service.DemoService;
 @RestController
 public class HelloWorldController {
 	
-	@Resource
-    private DemoService demoService;
-	
+
     @RequestMapping("/hello")
     public String index(HttpServletRequest request) {
     	ApplicationContext ac = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getServletContext());
     	//获取上下文
     	//ApplicationContext sac = RequestContextUtils.getWebApplicationContext(request);
-    	NeoProperties neoProperties = ac.getBean(NeoProperties.class);
+    	SystemProperties neoProperties = ac.getBean(SystemProperties.class);
     	System.out.println(neoProperties.getDescription());
     	
-    	//demoService.save(new Demo("abc", "abc@qq.com"));
-    	
+
         return "Hello World";
     }
     
     @RequestMapping("/getUser")
     public User getUser() {
         User user=new User();
-        /*user.setName("小明");
-        user.setPassword("123456");*/
         return user;
     }
     
-    @RequestMapping("/getById")
-    public Demo getById(long id){
-       return demoService.getById(id);
-    }
+
     
    
 }

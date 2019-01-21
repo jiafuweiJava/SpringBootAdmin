@@ -1,10 +1,17 @@
-package com.fwjia.admin.controller;
+package com.fwjia.admin.controller.background;
 
+import com.fwjia.admin.controller.BaseController;
 import com.fwjia.admin.core.AjaxMessageEntity;
 import com.fwjia.admin.core.AjaxMessageResult;
 import com.fwjia.admin.core.page.PageResult;
-import com.fwjia.admin.po.User;
+import com.fwjia.admin.entity.User;
+import com.fwjia.admin.service.IUserService;
+import com.fwjia.admin.service.specification.SimpleSpecificationBuilder;
+import com.fwjia.admin.service.specification.SpecificationOperator;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +20,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
+ */
 @Controller
 @Scope("prototype")
 @RequestMapping(value="/user")
-public class UserController {
+public class UserController extends BaseController {
+
+
+    @Autowired
+    private IUserService userService;
 
     @RequestMapping("/user/list")
     public String console(Model model){
@@ -28,27 +44,21 @@ public class UserController {
     @RequestMapping(value = "/query-user-list.json")
     @ResponseBody
     public AjaxMessageEntity<PageResult> queryUserList(int page, int limit) {
+
+        SimpleSpecificationBuilder<User> builder = new SimpleSpecificationBuilder<User>();
+        String searchText = request.getParameter("searchText");
+        if(StringUtils.isNotBlank(searchText)){
+            builder.add("nickName", SpecificationOperator.Operator.likeAll.name(), searchText);
+        }
+        Page<User> pageData = userService.findAll(builder.generateSpecification(), getPageRequest());
+
+
         //声明返回的json实体
         AjaxMessageEntity <PageResult>ajaxMessageEntity=new AjaxMessageEntity<>();
-        // 查询
-        List<User> list = new ArrayList<>();
-
-        for (int i = 1; i <30 ; i++) {
-            User user = new User();
-            user.setEmail("aaaa@qq.com");
-            user.setId(i);
-            user.setAvatar("https://wx4.sinaimg.cn/mw1024/5db11ff4gy1fmx4keaw9pj20dw08caa4.jpg");
-            user.setIp("127.0.0.1");
-            user.setJoinTime("20181010");
-            user.setPhone("13366666666");
-            user.setSex("男");
-            user.setUserName("展示");
-            list.add(user);
-        }
 
         PageResult pageResult = new PageResult();
-        pageResult.setCount(100L);
-        pageResult.setData(list);
+        pageResult.setCount(pageData.getTotalElements());
+        pageResult.setData(pageData.getContent());
 
         ajaxMessageEntity.setData(pageResult);
         ajaxMessageEntity.setMessager(AjaxMessageResult.SUCCESS, "ok");

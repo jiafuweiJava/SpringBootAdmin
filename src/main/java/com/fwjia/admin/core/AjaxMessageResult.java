@@ -3,12 +3,10 @@ package com.fwjia.admin.core;
 import java.io.Serializable;
 
 /**
- *
- * <p>Project:			<p>
- * <p>Module:		公共JSON返回常量类	<p>
- * <p>Description:		<p>
- *
- * @author fwjia
+ * 公共JSON返回常量类
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
  */
 public class AjaxMessageResult  implements Serializable {
 

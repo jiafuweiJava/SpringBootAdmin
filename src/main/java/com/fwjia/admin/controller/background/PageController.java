@@ -1,12 +1,17 @@
-package com.fwjia.admin.controller;
+package com.fwjia.admin.controller.background;
 
+import com.fwjia.admin.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+/**
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
+ */
 @Controller
-public class PageController {
+public class PageController extends BaseController {
     @RequestMapping("/page")
     public String page3(Model model){
         model.addAttribute("userName","张三");

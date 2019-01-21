@@ -7,4 +7,4 @@
 + 前端集成layui admin组件
 + 后台集成freemarker模板
 + 后端logback日志
-+ 分页
++ 增加spring data jap 分页对象

@@ -5,9 +5,9 @@ import java.util.List;
 
 /**
  * 用于装载查询结果
- *
- * @author leiwenjie leiwenjie.cn@gmail.com
- * @date 2017年4月21日 上午10:35:41
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
  */
 public class PageResult<E> implements Serializable {
 

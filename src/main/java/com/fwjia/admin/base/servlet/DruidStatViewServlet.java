@@ -6,11 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import com.alibaba.druid.support.http.StatViewServlet;
  
 /**
- * druid数据源状态监控.
- * @author jiafuwei
- *
+ * druid数据源状态监控
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
  */
- 
 @WebServlet(urlPatterns="/druid/*",
            initParams={
                     @WebInitParam(name="allow",value="192.168.1.72,127.0.0.1"),// IP白名单 (没有配置或者为空，则允许所有访问)

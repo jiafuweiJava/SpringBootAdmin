@@ -5,9 +5,9 @@ import java.io.Serializable;
 
 /**
  * 封装json请求返回的标准json对象
- * @author fwjia
- *
- * @param <T>
+ * @author  fwjia
+ * @email   jiafuwei_7@163.com
+ * @date    2019.1.18
  */
 public class AjaxMessageEntity<T> implements Serializable {
 
